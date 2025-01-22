@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CounterApp</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Confirm">Confirm</string>
+    <string name="Counter">Counter</string>
+    <string name="Dark">Dark</string>
+    <string name="English">English</string>
+    <string name="Japanese">Japanese</string>
+    <string name="Language">Language</string>
+    <string name="Light">Light</string>
+    <string name="Reset">Reset</string>
+    <string name="ResetMessage">Do you want to reset the counter?</string>
+    <string name="Settings">Settings</string>
+    <string name="System">System Default</string>
+    <string name="Theme">Theme</string>
+</resources>
