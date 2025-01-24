@@ -10,15 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.counterapp.R
-import com.example.counterapp.model.LanguageConfig
 import com.example.counterapp.model.ThemeConfig
-import com.example.counterapp.model.UserConfig
 
 @Composable
 fun SettingsContent(
-    userConfig: UserConfig,
+    themeConfig: ThemeConfig,
     onChangeThemeConfig: (ThemeConfig) -> Unit,
-    onChangeLanguageConfig: (LanguageConfig) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier.padding(16.dp)) {
@@ -30,14 +27,12 @@ fun SettingsContent(
         Spacer(modifier = Modifier.padding(8.dp))
 
         ThemeSettingsSection(
-            currentTheme = userConfig.themeConfig,
+            currentTheme = themeConfig,
             onChangeThemeConfig = onChangeThemeConfig
         )
 
         Spacer(modifier = Modifier.padding(8.dp))
 
-        LanguageSettingsSection(
-            onChangeLanguageConfig = onChangeLanguageConfig
-        )
+        LanguageSettingsSection()
     }
 }
