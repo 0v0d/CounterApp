@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.counterapp.model.UserConfig
+import com.example.counterapp.model.ThemeConfig
 import com.example.counterapp.ui.theme.CounterAppTheme
 import com.example.counterapp.view.setting.component.SettingsContent
 import com.example.counterapp.viewmodel.SettingsViewModel
@@ -25,11 +25,10 @@ fun SettingsScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        val userConfig by viewModel.userConfig.collectAsState()
+        val themeConfig by viewModel.userConfig.collectAsState()
         SettingsContent(
-            userConfig = userConfig,
+            themeConfig = themeConfig,
             onChangeThemeConfig = { viewModel.setThemeConfig(it) },
-            onChangeLanguageConfig = { viewModel.setLanguageConfig(it) }
         )
     }
 }
@@ -39,9 +38,8 @@ fun SettingsScreen(
 private fun Preview() {
     CounterAppTheme {
         SettingsContent(
-            userConfig = UserConfig.default(),
-            onChangeThemeConfig = { },
-            onChangeLanguageConfig = { }
+            themeConfig = ThemeConfig.Dark,
+            onChangeThemeConfig = { }
         )
     }
 }

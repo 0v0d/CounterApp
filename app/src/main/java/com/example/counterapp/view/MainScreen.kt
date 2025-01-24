@@ -1,4 +1,4 @@
-package com.example.counterapp.view.counter
+package com.example.counterapp.view
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.counterapp.navigation.BottomNavigation
 import com.example.counterapp.navigation.NavItem
+import com.example.counterapp.view.counter.CounterScreen
 import com.example.counterapp.view.setting.SettingsScreen
 
 @Composable

@@ -64,4 +64,6 @@ dependencies {
     implementation(libs.androidxAppCompat)
     implementation(libs.splashscreen)
 
+    debugImplementation(libs.leakcanary)
+    debugImplementation(libs.androidx.ui.tooling)
 }

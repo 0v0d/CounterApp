@@ -11,14 +11,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.os.LocaleListCompat
 import com.example.counterapp.R
-import com.example.counterapp.model.LanguageConfig
 
 @Composable
 fun LanguageSettingsSection(
-    onChangeLanguageConfig: (LanguageConfig) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val currentLanguageCode = AppCompatDelegate.getApplicationLocales().toLanguageTags()
+    val currentLanguageCode =
+        AppCompatDelegate.getApplicationLocales().toLanguageTags()
 
     Column(modifier = modifier) {
         Text(text = stringResource(id = R.string.Language))
@@ -27,7 +26,6 @@ fun LanguageSettingsSection(
             text = R.string.English,
             selected = currentLanguageCode == LanguageConfig.English.languageCode,
             onClick = {
-                onChangeLanguageConfig(LanguageConfig.English)
                 updateLanguage(LanguageConfig.English.languageCode)
             }
         )
@@ -35,14 +33,18 @@ fun LanguageSettingsSection(
             text = R.string.Japanese,
             selected = currentLanguageCode == LanguageConfig.Japanese.languageCode,
             onClick = {
-                onChangeLanguageConfig(LanguageConfig.Japanese)
                 updateLanguage(LanguageConfig.Japanese.languageCode)
             }
         )
     }
 }
 
-fun updateLanguage(languageTag: String) {
+private fun updateLanguage(languageTag: String) {
     val appLocale = LocaleListCompat.forLanguageTags(languageTag)
     AppCompatDelegate.setApplicationLocales(appLocale)
+}
+
+private enum class LanguageConfig(val languageCode: String) {
+    English("en"),
+    Japanese("ja"),
 }
