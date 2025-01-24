@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.counterapp.ui.theme.CounterAppTheme
 import com.example.counterapp.ui.theme.shouldUseDarkTheme
-import com.example.counterapp.view.counter.MainScreen
+import com.example.counterapp.view.MainScreen
 import com.example.counterapp.viewmodel.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val userConfig by viewModel.userConfig.collectAsState()
+            val themeConfig by viewModel.userConfig.collectAsState()
             val initialLoadCompleted by viewModel.initialLoadCompleted.collectAsState()
 
-            val isDarkTheme = shouldUseDarkTheme(userConfig.themeConfig)
+            val isDarkTheme = shouldUseDarkTheme(themeConfig)
             val lightScrim = Color.WHITE
             val darkScrim = if (isDarkTheme) {
                 MaterialTheme.colorScheme.surface.toArgb()
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     darkScrim
                 ) { isDarkTheme },
             )
-            CounterAppTheme(themeConfig = userConfig.themeConfig) {
+            CounterAppTheme(themeConfig = themeConfig) {
                 MainScreen()
             }
             splashScreen.setKeepOnScreenCondition { initialLoadCompleted }
